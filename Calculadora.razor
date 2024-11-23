@@ -1,0 +1,69 @@
+@page "/Calculadora"
+<PageTitle>Calculadora</PageTitle>
+
+<h1>Calculadora Básica</h1>
+<p>En esta página como su nombre lo dice hay una calculadora en la cual puedes realizar las 4 operaciones básicas. </p>
+
+<div class="mb-3">
+    <label for="numero1" class="form-label">Número 1</label>
+    <input type="number" id="numero1" @bind="numero1" class="form-control" placeholder="Ingresa el primer número" />
+</div>
+
+<div class="mb-3">
+        <label or="numero2" class="form-label">Número 2</label>
+    <input type="number" id="numero2" @bind="numero2" class="form-control" placeholder="Ingresa el segundo número" />
+</div>
+
+<div class="mb-3">
+    <button class="btn btn-primary me-2" @onclick="Sumar"> Sumar</button>
+    <button class="btn btn-secondary me-2" @onclick="Restar"> Restar</button>
+    <button class="btn btn-success me-2" @onclick="Multiplicar"> Multiplicar</button>
+    <button class="btn btn-danger me-2" @onclick="Dividir"> Dividir</button>
+</div>
+
+@if (resultado != null)
+{
+    <div class="alert alert-info">
+        <h4>Resultado: @resultado</h4>
+    </div>
+}
+
+@code {
+    private double numero1;
+    private double numero2;
+    private string? resultado;
+
+    void Sumar()
+    {
+        resultado = $"{numero1} + {numero2} = {numero1 + numero2}";
+    }
+
+    void Restar()
+    {
+        resultado = $"{numero1} - {numero2} = {numero1 - numero2}";
+    }
+
+    void Multiplicar()
+    {
+        resultado = $"{numero1} ✖️ {numero2} = {numero1 * numero2}";
+    }
+
+    void Dividir()
+    {
+        if (numero2 != 0)
+        {
+            resultado = $"{numero1} ÷ {numero2} = {numero1 / numero2}";
+        }
+        else
+        {
+            resultado = "Error: No se puede dividir entre 0.";
+        }
+    }
+}
+
+<style>
+    h1 {
+        color: rgb(103, 41, 5);
+       
+    }
+</style>
