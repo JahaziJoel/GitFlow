@@ -1,0 +1,87 @@
+@page "/"
+
+<PageTitle>Inicio</PageTitle>
+
+<div class="container">
+    <h1 class="title">Inicio</h1>
+
+    <h3 class="welcome">Bienvenido/a</h3>
+    <p>Agradezco tu visita a esta página donde podrás ver mi tarea!</p>
+
+    <h3 class="quote-title">Frase motivacional:</h3>
+    <p class="quote">La creatividad es la clave, el código la herramienta</p>
+</div>
+
+<style>
+    .container {
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(135deg, #eff2f4, #cfdceb);
+        border-radius: 10px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 40px auto;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .container:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .title {
+        color: #005f73;
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        transition: color 0.3s ease;
+    }
+
+    .title:hover {
+        color: rgb(103, 41, 5);
+    }
+
+    .welcome {
+        color: #005f73;
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        transition: color 0.3s ease;
+    }
+
+    .welcome:hover {
+        color: rgb(103, 41, 5);
+    }
+
+    .quote-title {
+        color: #3d405b;
+        font-size: 1.5rem;
+        margin-top: 30px;
+    }
+
+    .quote {
+        color: #1d3557;
+        font-style: italic;
+        font-size: 1.2rem;
+        padding: 10px;
+        border-left: 5px solid #457b9d;
+        background-color: #f1faee;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .quote:hover {
+        background-color: #a8dadc;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    h1, h3, p {
+        transition: transform 0.3s ease;
+    }
+
+    h1:hover, h3:hover, p:hover {
+        transform: translateY(-5px);
+    }
+</style>
