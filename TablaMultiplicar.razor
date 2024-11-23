@@ -1,0 +1,28 @@
+@page "/TablaMultiplicar"
+
+<PageTitle>Tabla de Multiplicar</PageTitle>
+<h1>Tabla de Multiplicar</h1>
+<h3>Ingrese un número para multiplicar</h3>
+
+<div>
+    <label>Numero:</label>
+    <input type="number" @bind="numero" class="form-control" />
+</div>
+
+@numero
+@if(numero > 0){
+    for(int i = 0; i <= 15; i++){
+        <div>@i x @numero = @(i * numero )</div>
+    }
+}
+
+@code {
+    int numero = 0;
+
+}
+
+<style>
+    h1 {
+        color: rgb(103, 41, 5);
+    }
+</style>
