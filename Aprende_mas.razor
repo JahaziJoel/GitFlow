@@ -1,0 +1,65 @@
+@page "/Aprende_mas"
+<PageTitle>Aprende más</PageTitle>
+
+<h1>Aprende más</h1>
+
+<div class="row">
+    @foreach (var video in videos)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                @if(IsValidYoutubeUrl(video.Url))
+                {
+                    <iframe class="card-img-top" width="100%" height="200" 
+                            src="https://www.youtube.com/embed/@(GetYoutubeVideoId(video.Url))"
+                            frameborder="0" allowfullscreen>
+                    </iframe>
+                }
+                else
+                {
+                    <p>URL no válida</p>
+                }
+                <div class="card-body">
+                    <h5 class="card-title">Video</h5>
+                    <p class="card-text">@video.Titulo</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@code{
+    class Video {
+        public string Titulo { get; set; } = string.Empty;
+        public string Url { get; set; } = string.Empty;
+    }
+
+    List<Video> videos = new List<Video> {
+        new Video{Titulo = "Este video nos habla de manera corta de Blazor, me gusta como se explica Blazor de manera sencilla.", Url = "https://youtu.be/QXxNlpjnulI"},
+        new Video{Titulo = "Nos da a entender cuan valioso es utilizar Blazor WebAssembly in .NET 8,  ", Url = "https://youtu.be/NJ9Kz3M8KzE"},
+        new Video{Titulo = "En este video podemos ver  Blazor in .NET 8 - SSR, Stream Rendering, Auto y otras cosas, es interesante las herramientas que podemos utilizar. ", Url = "https://youtu.be/walv3nLTJ5g"},
+        new Video{Titulo = "Tutorial sobre Blazor Fundamentals, me gusta que datallan todo paso a paso. ", Url = "https://youtu.be/CpbRAWgFBRQ"},
+        new Video{Titulo = "Video sobre librerias de Blazor, específicamente 8, me gusta que son de código abierto y gratuitas.", Url = "https://youtu.be/bsu0cCjeVaw"},
+    };
+
+    string GetYoutubeVideoId(string url)
+    {
+        var parts = url.Split('/');
+        if (parts.Length > 3)
+        {
+            return parts.Last().Split('?')[0];  
+        }
+        return string.Empty;
+    }
+
+    bool IsValidYoutubeUrl(string url)
+    {
+        return !string.IsNullOrEmpty(GetYoutubeVideoId(url));
+    }
+}
+
+<style>
+    h1 {
+        color: rgb(103, 41, 5);
+    }
+</style>
